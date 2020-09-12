@@ -1,0 +1,35 @@
+<html>
+  <script src="index.js"></script>
+  <script>
+  </script>
+  <body>
+    <form id="intake-form">
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname"><br>
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname"><br>
+      <label for="letter-type">Reason for Visit:</label><br>
+      <select id="letter-type" onchange="showhideIntake()">
+        <option value="none"></option>
+        <option value="theft">Theft</option>
+        <option value="murder">Murder</option>
+        <option value="adultery">Adultery</option>
+      </select><br>
+      <div id="stolen-c" style="display: none;">
+        <label for="stolen">What was stolen:</label><br>
+        <input type="text" id="stolen"><br>
+      </div>
+      <div id="murder-c" style="display: none;">
+        <label for="murdered">Who was murdererd:</label><br>
+        <input type="text" id="murdered"><br>
+      </div>
+      <div id="adultery-c" style="display: none;">
+        <label for="adultered">Who/What was adultered:</label><br>
+        <input type="text" id="adultered"><br>
+      </div>
+    </form>
+    <form action="letter.html" target="_blank">
+      <input type="submit" onClick="saveForm()" value="Generate Letter" />
+    </form>
+  </body>
+</html>
