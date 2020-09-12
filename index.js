@@ -83,12 +83,28 @@ function loadClaims() {
       button.value = "Generate Letter";
       button.innerHTML = "Generate Letter";
       button.onclick = () => setLastClaim(i);
+
+      let deleteB = document.createElement("button");
+      deleteB.innerHTML = "X";
+      deleteB.onclick = () => deleteClaim(i);
+
       form.appendChild(button);
       el.appendChild(text);
+      el.appendChild(deleteB);
       el.appendChild(form);
       container.appendChild(el);
     });
   }
+}
+
+function deleteClaim(i) {
+  let storage = getLocal();
+  storage.splice(i, 1);
+  window.localStorage.setItem("claims-array", JSON.stringify(storage));
+
+  container = document.getElementById("claims");
+  container.innerHTML = '';
+  loadClaims();
 }
 
 function clearClaims() {
